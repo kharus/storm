@@ -81,6 +81,13 @@
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
     </dependency>
+    <dependency>
+      <groupId>oracle.jdk</groupId>
+      <artifactId>javafx</artifactId>
+      <version>1.7.0</version>
+      <scope>system</scope>
+      <systemPath>${env.JAVA_HOME}/lib/ant-javafx.jar</systemPath>
+    </dependency>
   </dependencies>
 
   <build>
@@ -158,6 +165,11 @@
           <includePluginDependencies>false</includePluginDependencies>
           <classpathScope>compile</classpathScope>
           <mainClass>${storm.topology}</mainClass>
+          <arguments>
+            <argument>-classpath</argument>
+            <classpath/>
+            <argument>${storm.topology}</argument>
+          </arguments>
         </configuration>
       </plugin>
     </plugins>
